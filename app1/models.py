@@ -320,6 +320,6 @@ g_blog = None
 def gblog_init():
     global g_blog
     g_blog = Baseset.get_or_insert(u'default')
-    #gdcms = Links.get_or_insert(u'default',sort = 100, name = "GD-cms", url = "http://gae-django-cms.appspot.com")
+    gdcms = Links.get_or_insert(u'default',sort = 100, name = "Old blog", url = "http://activspirit.blogspot.com/")
 
 gblog_init()

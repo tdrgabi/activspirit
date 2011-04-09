@@ -16,12 +16,6 @@ indexes:
   - name: pub_time
     direction: desc
 
-- kind: app2_entry
-  properties:
-  - name: author
-  - name: pub_time
-    direction: desc
-
 - kind: django_admin_log
   properties:
   - name: user

@@ -29,11 +29,6 @@ handlers:
 - url: /tiny_mce/.*
   script: $PYTHON_LIB/google/appengine/ext/zipserve
 
-- url: /remote_api
-  script: $PYTHON_LIB/google/appengine/ext/remote_api/handler.py
-  secure: optional
-  login: admin
-
 - url: /media
   static_dir: media
   secure: optional
