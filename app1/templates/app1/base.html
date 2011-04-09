@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load cache %}
 {% load i18n %}
-{% block title %}{% block subtitle %}{% endblock %} - GAE cms{% endblock %}
+{% block title %}{% block subtitle %}{% endblock %}{% endblock %}
 
 {% block nav %}
     <li class="curselect"><a href="{% url app1.views.index %}" title="GAE CMS">GAE CMS</a></li>
@@ -14,14 +14,18 @@
 </div>
 
 <div class="yui-b" id="sidebar">
-<form action="http://www.google.com/cse" target="_blank" id="cse-search-box">
-  <div>
-    <input type="hidden" name="cx" value="{% if g_blog.google_cse_cx %}{{g_blog.google_cse_cx|safe}}{% else %}009677936332633277893:-nyho-cdiwa{% endif %}" />
-    <input type="hidden" name="ie" value="UTF-8" />
-    <input type="text" name="q" size="28" />
-    <input type="submit" name="sa" value="{% trans 'Go' %}" />
-  </div>
-</form>
+
+
+    <div class="wrap_top first ">
+
+    <h2>{% trans "Recent posts" %} <A title="{% trans 'RSS Feed' %}" href="{% url app1.views.rsslatest%}" target="_blank"><IMG title="{% trans 'RSS Feed' %}" src="/media/images/rss.gif" alt="{% trans 'RSS Feed' %}"></A></h2>
+<br/>
+    <ul class="wrap_list">{%for each in newposts%}<li><a href="{{each.get_absolute_url}}" title="{{each.title}}">{{each.title}}</a></li>{%endfor%}
+    </ul>
+
+    </div>
+    
+
 
 {% if user.is_authenticated %}
 <div class="wrap_top">
