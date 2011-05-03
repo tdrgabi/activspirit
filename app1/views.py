@@ -139,7 +139,13 @@ def generate(request, template_name, template_values={}):
     return render_to_response(request,"%s/%s"%(cur_app,template_name),base_values)
 
 def index(request):
-    return category_article(request,1,"Default Category 1");
+    obj = Category.get_by_id(1)
+    if obj:
+        return category_article(request,1,"Default Category 1")
+    else:
+        gae_ads()
+        newposts = get_newposts()
+        return generate(request,'index.html',{'newposts':newposts})
 
 def paginator(page = 1,all_count = 1,page_num = 10):
     all_pages = all_count/page_num
