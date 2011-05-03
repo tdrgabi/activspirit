@@ -139,7 +139,7 @@ def generate(request, template_name, template_values={}):
     return render_to_response(request,"%s/%s"%(cur_app,template_name),base_values)
 
 def index(request):
-    obj = Category.get_by_id(1)
+    obj = Category.get_by_id(5)
     if obj:
         return category_article(request,5,"Blog")
     else:
