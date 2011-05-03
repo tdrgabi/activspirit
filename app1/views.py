@@ -141,7 +141,7 @@ def generate(request, template_name, template_values={}):
 def index(request):
     obj = Category.get_by_id(1)
     if obj:
-        return category_article(request,1,"Default Category 1")
+        return category_article(request,5,"Blog")
     else:
         gae_ads()
         newposts = get_newposts()
